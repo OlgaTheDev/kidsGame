@@ -28,7 +28,7 @@ gulp.task('sass', function () {
 
 
 gulp.task('html', function () {
-    return gulp.src('./src/**/*.html')
+    return gulp.src('./src/pages/*.html')
         .pipe(htmlbeautify())
         .pipe(gulp.dest('./dist'))
 });
@@ -39,7 +39,7 @@ gulp.task('js', function () {
         .pipe(gulp.dest('./dist/js'))
 });
 
-gulp.task('browser-sync', ['sass', 'js'], function() {
+gulp.task('browser-sync', ['sass', 'js', 'html'], function() {
     browserSync.init({
         startPath:'./dist',
         server:{
